@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2023 at 10:18 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Generation Time: Jan 29, 2023 at 12:00 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `annus_db`
+-- Database: `webeluti_car_inventory`
 --
 
 -- --------------------------------------------------------
@@ -31,7 +31,7 @@ CREATE TABLE `body_types` (
   `id` int(11) NOT NULL,
   `body_type_title` varchar(15) NOT NULL,
   `status` int(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `body_types`
@@ -62,7 +62,7 @@ CREATE TABLE `colors` (
   `color_title` varchar(50) DEFAULT NULL,
   `color_code` varchar(50) DEFAULT NULL,
   `status` int(1) DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `colors`
@@ -92,7 +92,7 @@ CREATE TABLE `color_type` (
   `id` int(11) NOT NULL,
   `color_type_title` varchar(10) NOT NULL,
   `status` int(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `color_type`
@@ -112,7 +112,7 @@ CREATE TABLE `drives` (
   `id` int(11) NOT NULL,
   `drive_title` varchar(50) NOT NULL,
   `status` int(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `drives`
@@ -134,7 +134,7 @@ CREATE TABLE `fuels` (
   `id` int(11) NOT NULL,
   `fuel_title` varchar(50) NOT NULL,
   `status` int(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `fuels`
@@ -156,29 +156,25 @@ INSERT INTO `fuels` (`id`, `fuel_title`, `status`) VALUES
 CREATE TABLE `makes` (
   `id` int(11) NOT NULL,
   `make_title` varchar(50) NOT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `updated_by` int(11) DEFAULT NULL,
   `active` int(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `makes`
 --
 
-INSERT INTO `makes` (`id`, `make_title`, `created_at`, `created_by`, `updated_at`, `updated_by`, `active`) VALUES
-(1, 'Toyota', '2021-09-27 06:00:23', NULL, NULL, NULL, 1),
-(2, 'Honda', '2021-09-27 06:00:40', NULL, NULL, NULL, 1),
-(3, 'Suzuki', '2021-09-27 06:00:49', NULL, NULL, NULL, 1),
-(4, 'KIA', '2021-09-27 06:00:55', NULL, NULL, NULL, 1),
-(5, 'Mercedez Benz', '2021-09-27 06:01:13', NULL, NULL, NULL, 1),
-(6, 'Nissan', '2021-09-27 06:01:44', NULL, NULL, NULL, 1),
-(7, 'Mistubishi', '2021-09-27 06:01:56', NULL, NULL, NULL, 1),
-(8, 'BMW', '2021-09-27 06:02:04', NULL, '2021-10-03 05:03:13', NULL, 1),
-(9, 'Volvo', '2021-09-27 06:02:25', NULL, NULL, NULL, 1),
-(10, 'Jeep', '2021-09-27 06:02:31', NULL, NULL, NULL, 1),
-(11, 'Audi', '2021-09-27 06:10:03', NULL, '2021-09-30 06:21:01', NULL, 1);
+INSERT INTO `makes` (`id`, `make_title`, `active`) VALUES
+(1, 'Toyota', 1),
+(2, 'Honda', 1),
+(3, 'Suzuki', 1),
+(4, 'KIA', 1),
+(5, 'Mercedez Benz', 1),
+(6, 'Nissan', 1),
+(7, 'Mistubishi', 1),
+(8, 'BMW', 1),
+(9, 'Volvo', 1),
+(10, 'Jeep', 1),
+(11, 'Audi', 1);
 
 -- --------------------------------------------------------
 
@@ -190,46 +186,41 @@ CREATE TABLE `models` (
   `id` int(11) NOT NULL,
   `make_id` int(11) NOT NULL,
   `model_title` varchar(50) NOT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `updated_by` int(11) DEFAULT NULL,
   `active` int(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `models`
 --
 
-INSERT INTO `models` (`id`, `make_id`, `model_title`, `created_at`, `created_by`, `updated_at`, `updated_by`, `active`) VALUES
-(1, 1, 'Alphard', '2021-10-03 04:53:44', NULL, NULL, NULL, 1),
-(2, 1, 'Aqua', '2021-10-03 04:54:06', NULL, NULL, NULL, 1),
-(4, 1, 'Auris', '2021-10-03 04:54:18', NULL, NULL, NULL, 1),
-(6, 1, 'Belta', '2021-10-03 04:54:33', NULL, NULL, NULL, 1),
-(7, 1, 'Corolla Axio', '2021-10-03 04:54:51', NULL, NULL, NULL, 1),
-(8, 1, 'Corolla Fielder', '2021-10-03 04:54:59', NULL, NULL, NULL, 1),
-(9, 1, 'Corolla Runx', '2021-10-03 04:55:07', NULL, NULL, NULL, 1),
-(10, 1, 'Crown', '2021-10-03 04:55:17', NULL, NULL, NULL, 1),
-(11, 1, 'Fj Cruiser', '2021-10-03 04:55:26', NULL, NULL, NULL, 1),
-(12, 1, 'Hiace', '2021-10-03 04:55:39', NULL, NULL, NULL, 1),
-(13, 1, 'Hiace Van', '2021-10-03 04:55:49', NULL, NULL, NULL, 1),
-(14, 1, 'Hilux', '2021-10-03 04:56:01', NULL, NULL, NULL, 1),
-(15, 1, 'Hilux Surf', '2021-10-03 04:56:08', NULL, NULL, NULL, 1),
-(16, 1, 'Premio', '2021-10-03 04:56:27', NULL, NULL, NULL, 1),
-(17, 1, 'Harrier', '2021-10-03 04:56:38', NULL, NULL, NULL, 1),
-(18, 1, 'Isis', '2021-10-03 04:57:13', NULL, NULL, NULL, 1),
-(19, 1, 'Ist', '2021-10-03 04:57:22', NULL, NULL, NULL, 1),
-(20, 1, 'Land Cruiser V8', '2021-10-03 04:57:40', NULL, '2021-10-03 04:58:04', NULL, 1),
-(21, 1, 'Land Cruiser Prado', '2021-10-03 04:57:56', NULL, NULL, NULL, 1),
-(22, 1, 'Mark X', '2021-10-03 04:58:15', NULL, NULL, NULL, 1),
-(23, 1, 'Passo', '2021-10-03 04:58:22', NULL, NULL, NULL, 1),
-(24, 1, 'Prius', '2021-10-03 04:58:30', NULL, NULL, NULL, 1),
-(25, 1, 'Probox', '2021-10-03 04:58:45', NULL, NULL, NULL, 1),
-(26, 1, 'Probox', '2021-10-03 04:58:45', NULL, NULL, NULL, 1),
-(27, 2, 'CR-Z', '2021-10-03 04:59:15', NULL, NULL, NULL, 1),
-(28, 2, 'CR-V', '2021-10-03 04:59:24', NULL, NULL, NULL, 1),
-(29, 7, 'Pajero Mini', '2021-10-03 04:59:40', NULL, NULL, NULL, 1),
-(30, 4, 'Picanto', NULL, NULL, NULL, NULL, 1);
+INSERT INTO `models` (`id`, `make_id`, `model_title`, `active`) VALUES
+(1, 1, 'Alphard', 1),
+(2, 1, 'Aqua', 1),
+(4, 1, 'Auris', 1),
+(6, 1, 'Belta', 1),
+(7, 1, 'Corolla Axio', 1),
+(8, 1, 'Corolla Fielder', 1),
+(9, 1, 'Corolla Runx', 1),
+(10, 1, 'Crown', 1),
+(11, 1, 'Fj Cruiser', 1),
+(12, 1, 'Hiace', 1),
+(13, 1, 'Hiace Van', 1),
+(14, 1, 'Hilux', 1),
+(15, 1, 'Hilux Surf', 1),
+(16, 1, 'Premio', 1),
+(17, 1, 'Harrier', 1),
+(18, 1, 'Isis', 1),
+(19, 1, 'Ist', 1),
+(20, 1, 'Land Cruiser V8', 1),
+(21, 1, 'Land Cruiser Prado', 1),
+(22, 1, 'Mark X', 1),
+(23, 1, 'Passo', 1),
+(24, 1, 'Prius', 1),
+(25, 1, 'Probox', 1),
+(27, 2, 'CR-Z', 1),
+(28, 2, 'CR-V', 1),
+(29, 7, 'Pajero Mini', 1),
+(30, 4, 'Picanto', 1);
 
 -- --------------------------------------------------------
 
@@ -241,7 +232,7 @@ CREATE TABLE `steering` (
   `id` int(11) NOT NULL,
   `steering_title` varchar(50) NOT NULL,
   `status` int(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `steering`
@@ -279,7 +270,7 @@ CREATE TABLE `stock_basic_info` (
   `doors` int(11) DEFAULT NULL,
   `steering_id` int(11) DEFAULT NULL,
   `price_usd` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `stock_basic_info`
@@ -321,7 +312,7 @@ CREATE TABLE `stock_features_specs` (
   `drl` varchar(2) DEFAULT NULL,
   `fog_lamps` varchar(2) DEFAULT NULL,
   `alloy_rims` varchar(2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `stock_features_specs`
@@ -340,7 +331,7 @@ CREATE TABLE `stock_list` (
   `id` int(11) NOT NULL,
   `stock_title` varchar(100) NOT NULL,
   `active` int(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `stock_list`
@@ -359,7 +350,7 @@ CREATE TABLE `transmissions` (
   `id` int(11) NOT NULL,
   `transmission_title` varchar(50) NOT NULL,
   `status` int(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `transmissions`
@@ -379,29 +370,25 @@ CREATE TABLE `trims` (
   `id` int(11) NOT NULL,
   `model_id` int(11) NOT NULL,
   `trim_title` varchar(50) NOT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `updated_by` int(11) DEFAULT NULL,
   `active` int(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `trims`
 --
 
-INSERT INTO `trims` (`id`, `model_id`, `trim_title`, `created_at`, `created_by`, `updated_at`, `updated_by`, `active`) VALUES
-(1, 20, 'AX', '2021-10-03 05:00:05', NULL, '2021-10-03 05:19:04', NULL, 1),
-(2, 20, 'AXG', '2021-10-03 05:00:49', NULL, '2021-10-03 05:01:15', NULL, 1),
-(3, 20, 'ZX', '2021-10-03 05:01:00', NULL, NULL, NULL, 1),
-(4, 21, 'TZ', '2021-10-03 05:25:03', NULL, '2021-10-03 07:11:28', NULL, 1),
-(5, 21, 'TZ-G', '2021-10-03 05:25:20', NULL, '2021-10-03 07:11:32', NULL, 1),
-(6, 7, 'G', '2021-10-03 05:56:43', NULL, '2021-10-03 07:11:23', NULL, 1),
-(7, 7, 'F', '2021-10-03 05:56:51', NULL, '2021-10-03 07:11:19', NULL, 1),
-(8, 23, 'G', '2021-10-03 05:58:26', NULL, NULL, NULL, 1),
-(9, 23, 'L', '2021-10-03 06:00:06', NULL, NULL, NULL, 1),
-(23, 30, 'Ex', NULL, NULL, NULL, NULL, 1),
-(24, 30, 'Ex+', NULL, NULL, NULL, NULL, 1);
+INSERT INTO `trims` (`id`, `model_id`, `trim_title`, `active`) VALUES
+(1, 20, 'AX', 1),
+(2, 20, 'AXG', 1),
+(3, 20, 'ZX', 1),
+(4, 21, 'TZ', 1),
+(5, 21, 'TZ-G', 1),
+(6, 7, 'G', 1),
+(7, 7, 'F', 1),
+(8, 23, 'G', 1),
+(9, 23, 'L', 1),
+(23, 30, 'Ex', 1),
+(24, 30, 'Ex+', 1);
 
 --
 -- Indexes for dumped tables
@@ -574,6 +561,12 @@ ALTER TABLE `trims`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `models`
+--
+ALTER TABLE `models`
+  ADD CONSTRAINT `models_ibfk_1` FOREIGN KEY (`make_id`) REFERENCES `makes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `stock_basic_info`
