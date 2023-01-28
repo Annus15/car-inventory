@@ -2,9 +2,9 @@ Irfan Muhammad Annus 22109123
 
 Carnama | Car Inventory
 
-#Projectdescription
+# Projectdescription
 This project is a car inventory management system with particular specs of an invidual model. 
-#Installation
+# Installation
 1. Install Xampp in your computer.
 2. Extract zip file "car-inventory" in the xampp/htdocs.
 3. Open Xampp Control Panel and Start Apache & MySQL servers.
