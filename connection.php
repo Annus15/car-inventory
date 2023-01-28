@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
-$database = "annus_db";
+$username = "webeluti_car_inventory";
+$password = "Annus@123+";
+$database = "webeluti_car_inventory";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $database);
