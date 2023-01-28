@@ -207,10 +207,6 @@ function getMakes(){
     while($row = mysqli_fetch_assoc($dataQuery)){
         $data[$i]['id']         = $row['id'];
         $data[$i]['make_title'] = $row['make_title'];
-        $data[$i]['created_at'] = $row['created_at'];
-        $data[$i]['created_by'] = $row['created_by'];
-        $data[$i]['updated_at'] = $row['updated_at'];
-        $data[$i]['updated_by'] = $row['updated_by'];
         $data[$i]['active']     = $row['active'];
         $i++;
     }
@@ -227,10 +223,6 @@ function getModels(){
         $data[$i]['id']          = $row['id'];
         $data[$i]['make_id']     = $row['make_id'];
         $data[$i]['model_title'] = $row['model_title'];
-        $data[$i]['created_at']  = $row['created_at'];
-        $data[$i]['created_by']  = $row['created_by'];
-        $data[$i]['updated_at']  = $row['updated_at'];
-        $data[$i]['updated_by']  = $row['updated_by'];
         $data[$i]['active']      = $row['active'];
         $i++;
     }
@@ -247,10 +239,6 @@ function getTrims(){
         $data[$i]['id']         = $row['id'];
         $data[$i]['model_id']   = $row['model_id'];
         $data[$i]['trim_title'] = $row['trim_title'];
-        $data[$i]['created_at'] = $row['created_at'];
-        $data[$i]['created_by'] = $row['created_by'];
-        $data[$i]['updated_at'] = $row['updated_at'];
-        $data[$i]['updated_by'] = $row['updated_by'];
         $data[$i]['active']     = $row['active'];
         $i++;
     }
