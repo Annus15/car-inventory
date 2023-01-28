@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "webeluti_car_inventory";
-$password = "Annus@123+";
+$username = "root";
+$password = "";
 $database = "webeluti_car_inventory";
 
 // Create connection
