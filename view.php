@@ -24,7 +24,7 @@
                         <tbody>
                             <tr>
                                 <th>Stock ID</th>
-                                <td>STK-00<?= $getStock['id'] ?></td>
+                                <td>STK-00<?= $getStock['stk'] ?></td>
                                 <th>Make</th>
                                 <td><?= $getStock['make_title'] ?></td>
                                 <th>Model</th>

@@ -143,10 +143,10 @@ function getStockById($stockID){
     global $conn;
     $data = array();
     
-    $dataQuery = mysqli_query($conn, "SELECT sl.id, sl.stock_title, m.id mk, m.make_title, md.id mdl, md.model_title, sbi.year, t.id trm, t.trim_title, bt.body_type_title, ec.color_title exterior_color, ic.color_title interior_color, trans.transmission_title, d.drive_title, f.fuel_title, str.steering_title, sbi.engine, sbi.mileage, sbi.engine_no, sbi.chassis_no, sbi.registration_date, sbi.seats, sbi.doors, sbi.doors, sbi.price_usd, sfs.* from stock_list as sl JOIN stock_basic_info as sbi ON sl.id = sbi.stock_list_id JOIN makes as m ON sbi.make_id = m.id JOIN models as md ON sbi.model_id = md.id JOIN trims as t ON sbi.trim_id = t.id JOIN body_types as bt ON bt.id = sbi.body_type_id JOIN colors as ec ON ec.id = sbi.exterior_color_id JOIN colors as ic ON ic.id = sbi.interior_color_id JOIN transmissions as trans ON trans.id = sbi.transmission_id JOIN drives as d ON d.id = sbi.drive_id JOIN fuels as f ON f.id = sbi.fuel_id JOIN steering as str ON str.id = sbi.steering_id JOIN stock_features_specs as sfs ON sfs.stock_list_id = sl.id WHERE sl.active = 1 AND sl.id = ".$stockID."");
+    $dataQuery = mysqli_query($conn, "SELECT sl.id stk, sl.stock_title, m.id mk, m.make_title, md.id mdl, md.model_title, sbi.year, t.id trm, t.trim_title, bt.body_type_title, ec.color_title exterior_color, ic.color_title interior_color, trans.transmission_title, d.drive_title, f.fuel_title, str.steering_title, sbi.engine, sbi.mileage, sbi.engine_no, sbi.chassis_no, sbi.registration_date, sbi.seats, sbi.doors, sbi.doors, sbi.price_usd, sfs.* from stock_list as sl JOIN stock_basic_info as sbi ON sl.id = sbi.stock_list_id JOIN makes as m ON sbi.make_id = m.id JOIN models as md ON sbi.model_id = md.id JOIN trims as t ON sbi.trim_id = t.id JOIN body_types as bt ON bt.id = sbi.body_type_id JOIN colors as ec ON ec.id = sbi.exterior_color_id JOIN colors as ic ON ic.id = sbi.interior_color_id JOIN transmissions as trans ON trans.id = sbi.transmission_id JOIN drives as d ON d.id = sbi.drive_id JOIN fuels as f ON f.id = sbi.fuel_id JOIN steering as str ON str.id = sbi.steering_id JOIN stock_features_specs as sfs ON sfs.stock_list_id = sl.id WHERE sl.active = 1 AND sl.id = ".$stockID."");
     
     while($row = mysqli_fetch_assoc($dataQuery)){
-        $data['id']          = $row['id'];
+        $data['stk']          = $row['stk'];
         $data['mk']          = $row['mk'];
         $data['mdl']          = $row['mdl'];
         $data['trm']          = $row['trm'];
