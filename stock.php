@@ -94,7 +94,7 @@
                             <div class="form-group">
                                 <label class="form-control-label">Trim</label>
                                 <select class="form-control select2 form-control-sm stock_trim" name="stock_trim">
-                                    <option>Select Trim</option>
+                                    <option value="">Select Trim</option>
                                 </select>
                             </div>
                         </div>
@@ -253,9 +253,12 @@
                                 <label class="form-control-label">Registration Date</label>
                                 <div class="input-group date" id="reservationdate" data-target-input="nearest">
                                     <input type="text" class="form-control form-control-sm datetimepicker-input" name="stock_regirtaton_date" data-target="#reservationdate" value="<?= (!empty($getStock['registration_date']))? $getStock['registration_date']:'' ?>" />
+                                    
                                     <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        
                                     </div>
+                                    <p>(YYYY-MM-DD)</p>
                                 </div>
                             </div>
                         </div>

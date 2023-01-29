@@ -15,3 +15,6 @@ This project is a car inventory management system with particular specs of an in
 
 # Basic Usage
 To start the project, go to localhost/car-inventory on your browser.
+
+# Live URL
+https://car-inventory.webelutions.com/

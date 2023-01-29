@@ -13,6 +13,9 @@
 ?>
 
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 m-1">
+        <br>
+        <h4> Welcome to Carnama | Car Inventory Management System </h4> 
+        <br>
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Search Stock</h4>
